@@ -32,6 +32,8 @@ dotnet tool install --global dotnet-roundhouse --version 1.2.2
 - --silent no interaction
 - -t this warps all scripts in ``` BEGIN TRANSACTION ```
 - --env The scripts with this name ``` PRO.0003_SeedAbilitiesPokemons.env.sql ```, **PROD** its the environment, they search scripts and execute
+### More docs in official [Wiki](https://github.com/chucknorris/roundhouse/wiki)
+
 ```
 
 rh -f {{PATHFOLADERS}} --databasename={{DATABASENAME}} --connectionstring="User ID=sa;Password={{xx}}.;Database={{xx}};server={{xx}};" --silent -t --env LOCAL 
