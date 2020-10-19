@@ -2,6 +2,7 @@
 ```
 dotnet tool install --global dotnet-roundhouse --version 1.2.2
 ```
+## 2.Create Folder structure and scripts
 ```
 📦Pokemon.Database
  ┣ 📂alterDatabase
