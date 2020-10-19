@@ -1,3 +1,3 @@
 ALTER TABLE Pokemons
-ADD Email varchar(255);
+ADD Email varchar(255) NULL;
 GO
