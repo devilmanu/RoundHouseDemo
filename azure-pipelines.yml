@@ -35,6 +35,10 @@ steps:
 #      semversion=$(minver -v e)
 #      echo $(minver -v e)
 #      echo "##vso[task.setvariable variable=semversion]$semversion"
+- task: CopyFiles@2
+  inputs:
+    contents: '**'
+    targetFolder: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
   inputs:
