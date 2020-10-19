@@ -1,19 +1,47 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+# trigger:
+#   branches:
+#     include:
+#       - 'master'
+#   tags:
+#     include:
+#       - '*'
+
+# solo cuando hacemos tag se versiona 
 trigger:
-- master
+  branches:
+    - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool: Default
 
+variables:
+  environment: ''
+ 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: DotNetCoreCLI@2
+  displayName: "Install SemVer Cli Tool"
+  inputs:
+    command: 'custom'
+    custom: 'tool'
+    arguments: 'update minver-cli --version 2.3.0 -g --add-source "https://api.nuget.org/v3/index.json"'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: DotNetCoreCLI@2
+ displayName: "Install RoundHouse Cli Tool"
+ inputs:
+   command: 'custom'
+   custom: 'tool'
+   arguments: 'update -g dotnet-roundhouse --version 1.2.1 --add-source "https://api.nuget.org/v3/index.json"'
+
+#https://medium.com/microsoftazure/how-to-pass-variables-in-azure-pipelines-yaml-tasks-5c81c5d31763  //you save my life
+- task: CmdLine@2
+ displayName: "Calculate version"
+ inputs:
+   script: |
+     semversion=$(minver -v e)
+     echo $(minver -v e)
+     echo "##vso[task.setvariable variable=semversion]$semversion"
