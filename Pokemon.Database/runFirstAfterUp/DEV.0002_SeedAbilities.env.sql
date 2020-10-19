@@ -1,0 +1,10 @@
+insert into Abilities (Id, Name) values ('3a402431-c1c3-4a52-bb31-56f4ea8cd96b', 'Circle');
+insert into Abilities (Id, Name) values ('9112652d-f1e5-4ece-bf80-2781a78fb0bc', 'Plaza');
+insert into Abilities (Id, Name) values ('dd5ffc04-1390-4d50-8a6a-e5f19ba1f495', 'Circle');
+insert into Abilities (Id, Name) values ('152f8450-f3d5-43b4-bc59-4bb5115e574b', 'Street');
+insert into Abilities (Id, Name) values ('70658387-ff36-436d-a112-e23a37fa4608', 'Trail');
+insert into Abilities (Id, Name) values ('0783f538-0558-43e8-89c1-96e48dacb8d3', 'Hill');
+insert into Abilities (Id, Name) values ('96db3262-fdad-4259-8a27-6a72ecd5445a', 'Circle');
+insert into Abilities (Id, Name) values ('5d50bee3-9a95-464f-a093-5dedc379fcba', 'Terrace');
+insert into Abilities (Id, Name) values ('c7da23f8-5886-4039-8137-da7ea4ccb69d', 'Crossing');
+insert into Abilities (Id, Name) values ('f9377b27-ead3-4fd8-968b-1e8e09dd42a0', 'Park');
