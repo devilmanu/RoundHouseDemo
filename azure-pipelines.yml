@@ -1,7 +1,6 @@
 
 trigger:
-  branches:
-    - master
+  - master
 
 pool: Default
 
@@ -9,33 +8,33 @@ variables:
   environment: ''
  
 steps:
-- task: UseDotNet@2
-  displayName: "Install NetCore 3.x"
-  inputs:
-    packageType: 'sdk'
-    version: '3.x'
-- task: DotNetCoreCLI@2
-  displayName: "Install SemVer Cli Tool"
-  inputs:
-    command: 'custom'
-    custom: 'tool'
-    arguments: 'update minver-cli --version 2.3.0 -g --add-source "https://api.nuget.org/v3/index.json"'
+# - task: UseDotNet@2
+#   displayName: "Install NetCore 3.x"
+#   inputs:
+#     packageType: 'sdk'
+#     version: '3.x'
+# - task: DotNetCoreCLI@2
+#   displayName: "Install SemVer Cli Tool"
+#   inputs:
+#     command: 'custom'
+#     custom: 'tool'
+#     arguments: 'update minver-cli --version 2.3.0 -g --add-source "https://api.nuget.org/v3/index.json"'
 
-- task: DotNetCoreCLI@2
-  displayName: "Install RoundHouse Cli Tool"
-  inputs:
-   command: 'custom'
-   custom: 'tool'
-   arguments: 'update -g dotnet-roundhouse --version 1.2.1 --add-source "https://api.nuget.org/v3/index.json"'
+# - task: DotNetCoreCLI@2
+#   displayName: "Install RoundHouse Cli Tool"
+#   inputs:
+#    command: 'custom'
+#    custom: 'tool'
+#    arguments: 'update -g dotnet-roundhouse --version 1.2.1 --add-source "https://api.nuget.org/v3/index.json"'
 
-#https://medium.com/microsoftazure/how-to-pass-variables-in-azure-pipelines-yaml-tasks-5c81c5d31763  //you save my life
-- task: CmdLine@2
-  displayName: "Calculate version"
-  inputs:
-   script: |
-     semversion=$(minver -v e)
-     echo $(minver -v e)
-     echo "##vso[task.setvariable variable=semversion]$semversion"
+# #https://medium.com/microsoftazure/how-to-pass-variables-in-azure-pipelines-yaml-tasks-5c81c5d31763  //you save my life
+# - task: CmdLine@2
+#   displayName: "Calculate version"
+#   inputs:
+#    script: |
+#      semversion=$(minver -v e)
+#      echo $(minver -v e)
+#      echo "##vso[task.setvariable variable=semversion]$semversion"
 
 - task: PublishBuildArtifacts@1
   inputs:
