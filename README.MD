@@ -1,7 +1,8 @@
 ## 1.Installation
 ```
 dotnet tool install --global dotnet-roundhouse --version 1.2.2
-
+```
+```
 📦Pokemon.Database
  ┣ 📂alterDatabase
  ┣ 📂functions
@@ -22,8 +23,6 @@ dotnet tool install --global dotnet-roundhouse --version 1.2.2
  ┃ ┣ 📜0004_AddTablePokemonsAbilities.sql
  ┃ ┗ 📜0005_AddEmailToPokemon.sql
  ┗ 📂views
-
-
 ```
 ## 2.Execute (Recommended)
 -  -f path to scripts folders
