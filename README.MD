@@ -39,5 +39,3 @@ dotnet tool install --global dotnet-roundhouse --version 1.2.2
 rh -f {{PATHFOLADERS}} --databasename={{DATABASENAME}} --connectionstring="User ID=sa;Password={{xx}}.;Database={{xx}};server={{xx}};" --silent -t --env LOCAL 
 
 ```
-
-2020-10-19T19:48:52.2663982Z rh -f /azp/agent/_work/r1/a/_devilmanu.RoundHouseDemo/drop/Pokemon.Database --databasename=pokemon-DEV --connectionstring="User ID=sa;Password=fMJkotp0p.;Database=pokemon-DEV;server=sql;" --silent -t --env DEV
